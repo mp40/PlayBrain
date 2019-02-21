@@ -13,5 +13,20 @@ describe("Vote works",()=>{
             wrapper.find('#selectJapan').simulate('click')
             expect(wrapper.state().selectedRegion).toEqual('Japan')
         })
+        it('should select Taiwan when the Taiwan button is selected',()=>{
+            const wrapper = shallow(<Vote/>)
+            wrapper.find('#selectTaiwan').simulate('click')
+            expect(wrapper.state().selectedRegion).toEqual('Taiwan')
+        })
+        it('should select Hong Kong when the Hong Kong button is selected',()=>{
+            const wrapper = shallow(<Vote/>)
+            wrapper.find('#selectHongKong').simulate('click')
+            expect(wrapper.state().selectedRegion).toEqual('Hong Kong')
+        })
+        it('should select South East Asia when the South East Asia button is selected',()=>{
+            const wrapper = shallow(<Vote/>)
+            wrapper.find('#selectSouthEastAsia').simulate('click')
+            expect(wrapper.state().selectedRegion).toEqual('South East Asia')
+        })
     })
 })

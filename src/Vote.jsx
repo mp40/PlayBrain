@@ -31,6 +31,15 @@ class Vote extends Component {
                 <button id='selectJapan' onClick={this.selectRegion.bind(this,'Japan')} style={{backgroundColor: this.state.selectedRegion === "Japan" ? `rgb(${this.dekkiOrange})` : 'lightgrey'}}>
                     Japan
                 </button>
+                <button id='selectTaiwan' onClick={this.selectRegion.bind(this,'Taiwan')} style={{backgroundColor: this.state.selectedRegion === "Taiwan" ? `rgb(${this.dekkiOrange})` : 'lightgrey'}}>
+                    Taiwan
+                </button>
+                <button id='selectHongKong' onClick={this.selectRegion.bind(this,'Hong Kong')} style={{backgroundColor: this.state.selectedRegion === "Hong Kong" ? `rgb(${this.dekkiOrange})` : 'lightgrey'}}>
+                    Hong Kong
+                </button>
+                <button id='selectSouthEastAsia' onClick={this.selectRegion.bind(this,'South East Asia')} style={{backgroundColor: this.state.selectedRegion === "South East Asia" ? `rgb(${this.dekkiOrange})` : 'lightgrey'}}>
+                    South East Asia
+                </button>
             </div>
         )
     }
