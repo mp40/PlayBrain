@@ -45,8 +45,11 @@ class Vote extends Component {
                 </button>
                 <p className="details">
                     {this.state.selectedRegion ? 
-                    `${this.msgPlayerVote} ${this.state.votesRmaining} votes remaining` :
+                    `${this.msgPlayerVote} `:
                     null}
+                    <span className='fadedText'>
+                        {this.state.selectedRegion ? `${this.state.votesRmaining} votes remaining`: null}
+                    </span>
                 </p>
                 <p className="details">
                     {this.state.selectedRegion ? 

@@ -8,6 +8,10 @@
     font-size: small;
 }
 
+.fadedText{
+    color: darkgray;
+}
+
 p{
     margin: 0rem;
 }
