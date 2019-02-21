@@ -6,12 +6,13 @@ class Vote extends Component {
     constructor(){
         super()
         this.state = {
-            selectedRegion: null
+            selectedRegion: null,
+            votesRmaining: 3
         }
     }
 
     dekkiOrange = '255,125,8'
-    msgPlayerVote = 'Click up to 3 Players to place your votes. (3 votes remaining) \n'
+    msgPlayerVote = 'Click up to 3 Players to place your votes.'
     msgValidRegion = 'The remainder of your votes must be for'
 
     selectRegion(region){
@@ -44,7 +45,12 @@ class Vote extends Component {
                 </button>
                 <p>
                     {this.state.selectedRegion ? 
-                    `${this.msgPlayerVote} \n ${this.msgValidRegion} ${this.state.selectedRegion}` :
+                    `${this.msgPlayerVote} ${this.state.votesRmaining} votes remaining` :
+                    null}
+                </p>
+                <p>
+                    {this.state.selectedRegion ? 
+                    `${this.msgValidRegion} ${this.state.selectedRegion}` :
                     null}
                 </p>    
             </div>

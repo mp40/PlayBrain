@@ -39,4 +39,11 @@ describe("Vote works",()=>{
             expect(wrapper.text()).toContain('The remainder of your votes must be for Japan')
         })
     })
+    describe('voting',()=>{
+        it('should start with three votes',()=>{
+            const wrapper = shallow(<Vote/>)
+            wrapper.find('#selectJapan').simulate('click')
+            expect(wrapper.text()).toContain('3 votes remaining')
+        })
+    })
 })
