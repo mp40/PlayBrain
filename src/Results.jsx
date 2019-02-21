@@ -3,24 +3,32 @@ import React, {Component} from "react";
 import './Results.css'
 
 const playersMock = require('./playersMock')
+const {filterByRegion} = require('./helperFunctions')
 
 class Results extends Component {
     constructor(){
         super()
         this.state = {
-            viewRegion: undefined
+            viewRegion: undefined,
+            players: playersMock,
+            availablePlayers: []
         }
     }
 
     dekkiOrange = '255,125,8'
 
     viewRegion = region => {
+        const players = this.state.players
         this.setState({
-            viewRegion: region
+            viewRegion: region,
+            players: playersMock,
+            availablePlayers: filterByRegion(players, region)
         })
     }
 
     render () {
+        const availablePlayers = this.state.availablePlayers
+        const votedPlayers = this.props.votedPlayers
         return (
             <div className="resultsContainer">
                 <h2>
@@ -41,7 +49,7 @@ class Results extends Component {
                 <button className='regionButton' id='viewSouthEastAsia' onClick={this.viewRegion.bind(this,'South East Asia')} style={{backgroundColor: this.state.viewRegion === "South East Asia" ? `rgb(${this.dekkiOrange})` : 'lightgrey'}}>
                     South East Asia
                 </button>
-            </div>
+        </div>
         )
     }
 }

@@ -7,7 +7,7 @@ class App extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            admin: true,
+            admin: false,
             user: true,
             toggleView: 'Vote'
         };
