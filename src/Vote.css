@@ -1,3 +1,8 @@
+h4{
+    margin-top: .6rem;
+    margin-bottom: .6rem;
+}
+
 .voteContainer{
     text-align: center;
     color: #ededed;
@@ -44,12 +49,19 @@ button:focus {outline:0;}
 }
 
 .playerMsg {
-    margin: 1.5rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem; 
     text-align: justify;
     font-size: small;
 }
 
 img {
-    border-radius: 50%
+    border-radius: 50%;
+    width: 45%;
+    border: 5px solid darkgray;
+}
+
+img:hover {
+    border: 5px solid whitesmoke
 }
 
