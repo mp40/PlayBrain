@@ -89,12 +89,18 @@ class Vote extends Component {
                 {availablePlayers.map((player, index)=>{
                     return <div className="playerCard" key={index}>
                     <div className='imageContainer'>
-                    <img
-                    id = {"img" + index}
-                    src={player.avatarUrl}
-                    className={votedPlayers.includes(player) ? 'selectedImg' : 'unselectedImg'}
-                    onClick={this.selectPlayer.bind(this, player)}
-                    />
+                        <img
+                        id = {"img" + index}
+                        src={player.avatarUrl}
+                        className={votedPlayers.includes(player) ? 'selectedImg' : 'unselectedImg'}
+                        onClick={this.selectPlayer.bind(this, player)}
+                        />
+                            <div className = 'yourSlection'>
+                                {votedPlayers.includes(player) ?
+                                'Your selection' :
+                                null
+                                }
+                            </div>
                     </div>
                     <h4>
                         {player.nickname}
