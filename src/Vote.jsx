@@ -2,13 +2,17 @@
 import React, {Component} from "react";
 import './Vote.css'
 
+const filterByRegion = require('./helperFunctions')
+const playersMock = require('./playersMock')
+
 class Vote extends Component {
     constructor(){
         super()
         this.state = {
             selectedRegion: null,
             votesRmaining: 3,
-            players: null
+            players: playersMock,
+            availablePlayers: []
         }
     }
 
@@ -16,11 +20,16 @@ class Vote extends Component {
     msgPlayerVote = 'Click up to 3 Players to place your votes.'
     msgValidRegion = 'The remainder of your votes must be for'
 
-    selectRegion(region){
-        this.setState({selectedRegion: region})
+    selectRegion =region =>{
+        const players = this.state.players
+        this.setState({
+            selectedRegion: region,
+            availablePlayers: filterByRegion(players, region)
+        })
     }
 
     render () {
+        const availablePlayers = this.state.availablePlayers
         return (
             <div className='voteContainer'>
                 <h2>
@@ -56,7 +65,12 @@ class Vote extends Component {
                     {this.state.selectedRegion ? 
                     `${this.msgValidRegion} ${this.state.selectedRegion}` :
                     null}
-                </p>    
+                </p>
+                <div>
+                {availablePlayers.map((player, index)=>{
+                    return <div className="playerCard" key={index}>{player.nickname}</div>
+                })}
+                </div>
             </div>
         )
     }
