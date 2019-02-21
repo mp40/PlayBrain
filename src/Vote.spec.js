@@ -10,8 +10,8 @@ describe("Vote works",()=>{
     describe('selecting region',()=>{
         it('should select Japan when the Japan button is selected',()=>{
             const wrapper = shallow(<Vote/>)
-            wrapper.find('#Japan').simulate('click')
-            expect('#Japan').toHaveProperty('color', '255, 125, 8')
+            wrapper.find('#selectJapan').simulate('click')
+            expect(wrapper.state().selectedRegion).toEqual('Japan')
         })
     })
 })
