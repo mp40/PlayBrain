@@ -76,6 +76,10 @@ img {
     border: 5px solid rgb(255,125,8)
 }
 
+.finalSelection {
+    border: 5px solid darkgray;  
+}
+
 .playerMsg {
     margin-left: 1.5rem;
     margin-right: 1.5rem; 

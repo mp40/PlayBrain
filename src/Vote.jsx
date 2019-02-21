@@ -93,7 +93,9 @@ class Vote extends Component {
                         <img
                         id = {"img" + index}
                         src={player.avatarUrl}
-                        className={votedPlayers.includes(player) ? 'selectedImg' : 'unselectedImg'}
+                        className={votedPlayers.includes(player) ? 
+                            'selectedImg' : 
+                            this.state.votesRmaining > 0 ? 'unselectedImg' : 'finalSelection'}
                         onClick={this.selectPlayer.bind(this, player)}
                         />
                         <div className = 'yourSelection'>
