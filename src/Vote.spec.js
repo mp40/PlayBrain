@@ -66,6 +66,12 @@ describe("Vote works",()=>{
             wrapper.find('#img4').simulate('click')
             expect(wrapper.text()).toContain('0 votes remaining')
         })
+        it('should add a "Your selection" tag',()=>{
+            const wrapper = shallow(<Vote/>)
+            wrapper.find('#selectTaiwan').simulate('click')
+            wrapper.find('#img1').simulate('click')
+            expect(wrapper.text()).toContain('Your selection')
+        })
     })
     describe('Available Players',()=>{
         it('should render the players names',()=>{
