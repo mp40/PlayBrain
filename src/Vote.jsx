@@ -12,7 +12,8 @@ class Vote extends Component {
             selectedRegion: null,
             votesRmaining: 3,
             players: playersMock,
-            availablePlayers: []
+            availablePlayers: [],
+            votedPlayers: []
         }
     }
 
@@ -24,13 +25,23 @@ class Vote extends Component {
         const players = this.state.players
         this.setState({
             selectedRegion: region,
-            availablePlayers: filterByRegion(players, region)
+            availablePlayers: filterByRegion(players, region),
+            votedPlayers: []
         })
     }
 
     selectPlayer = player =>{
+        const votedPlayers = this.state.votedPlayers
+        if(votedPlayers.includes(player)){
+            return
+        } else {
+            votedPlayers.push(player)
+        }
         if(this.state.votesRmaining > 0){
-            this.setState({votesRmaining: this.state.votesRmaining -1})
+            this.setState({
+                votesRmaining: this.state.votesRmaining -1,
+                votedPlayers: votedPlayers
+            })
         }
         
     }
@@ -80,7 +91,7 @@ class Vote extends Component {
                     <img
                     id = {"img" + index}
                     src={player.avatarUrl}
-                    onClick={this.selectPlayer.bind(this, index)}
+                    onClick={this.selectPlayer.bind(this, player)}
                     />
                     </div>
                     <h4>
