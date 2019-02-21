@@ -6,11 +6,13 @@ class Vote extends Component {
     constructor(){
         super()
         this.state = {
-            selectedRegion: undefined
+            selectedRegion: null
         }
     }
 
     dekkiOrange = '255,125,8'
+    msgPlayerVote = 'Click up to 3 Players to place your votes. (3 votes remaining)'
+    msgValidRegion = 'The reaminder of your votes must be for'
 
     selectRegion(region){
         this.setState({selectedRegion: region})
@@ -40,6 +42,11 @@ class Vote extends Component {
                 <button id='selectSouthEastAsia' onClick={this.selectRegion.bind(this,'South East Asia')} style={{backgroundColor: this.state.selectedRegion === "South East Asia" ? `rgb(${this.dekkiOrange})` : 'lightgrey'}}>
                     South East Asia
                 </button>
+                <p>
+                    {this.state.selectedRegion ? 
+                    this.msgPlayerVote :
+                    null}
+                </p>    
             </div>
         )
     }

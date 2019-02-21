@@ -28,5 +28,10 @@ describe("Vote works",()=>{
             wrapper.find('#selectSouthEastAsia').simulate('click')
             expect(wrapper.state().selectedRegion).toEqual('South East Asia')
         })
+        it('should display the votes remaining message when region selected',()=>{
+            const wrapper = shallow(<Vote/>)
+            wrapper.find('#selectJapan').simulate('click')
+            expect(wrapper.text()).toContain('Click up to 3 Players')
+        })
     })
 })
