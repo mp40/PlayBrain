@@ -66,13 +66,21 @@ class Vote extends Component {
                     `${this.msgValidRegion} ${this.state.selectedRegion}` :
                     null}
                 </p>
-                <div>
+                <div className="playerContainer">
                 {availablePlayers.map((player, index)=>{
                     return <div className="playerCard" key={index}>
-                    {player.nickname}
-                        <p>
+                    <div className='imageContainer'>
+                    <img
+                    src={player.avatarUrl}
+                    />
+                    </div>
+                    <h4>
+                        {player.nickname}
+                    </h4>
+                    
+                        <div className="playerMsg">
                             {player.message}
-                        </p>
+                        </div>
                     </div>
                 })}
                 </div>

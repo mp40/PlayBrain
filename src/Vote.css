@@ -28,3 +28,28 @@ button:focus {outline:0;}
     height: 1.4rem;
     font-size: 72%
 }
+
+.playerContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.playerCard {
+    width: 13%;
+}
+
+.imageContainer {
+    margin-top: 1.5rem;
+}
+
+.playerMsg {
+    margin: 1.5rem;
+    text-align: justify;
+    font-size: small;
+}
+
+img {
+    border-radius: 50%
+}
+
