@@ -92,12 +92,4 @@ describe("Vote works",()=>{
             expect(wrapper.text()).toContain('the anchor/captain of the Singapore team')
         })
     })
-    describe('admin buttons',()=>{
-        it('shoulder render a button to close votation for admins only',()=>{
-            const wrapper = shallow(<Vote/>)
-            expect(wrapper.text()).toContain('Close Votation')
-            wrapper.setState({admin: true})
-            expect(wrapper.text()).toContain('Close Votation')
-        })
-    })
 })

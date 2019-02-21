@@ -14,7 +14,6 @@ class Vote extends Component {
             players: playersMock,
             availablePlayers: [],
             votedPlayers: [],
-            admin: false
         }
     }
 
@@ -115,9 +114,12 @@ class Vote extends Component {
                     </div>
                 })}
                 </div>
-                <button className='adminCloseVote'>
+                {this.props.admin ? 
+                <button id='adminCloseVote' onClick={this.props.toggleView.bind(this, "Results")}>
                     Close Votation
-                </button>
+                </button> :
+                null
+                }
             </div>
         )
     }

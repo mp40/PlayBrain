@@ -15,3 +15,20 @@ describe('rendering components',()=>{
   })
 })
 
+describe('the results page', ()=>{
+  it('should render the results page when admin closes votation',()=>{
+    const wrapper = mount(<App/>)
+    wrapper.setState({admin: true})
+    wrapper.find('#adminCloseVote').simulate('click')
+    expect(wrapper.text()).toContain('Results for voting in each region')
+  })
+})
+
+describe('admin buttons',()=>{
+  it('shoulder render a button to close votation for admins only',()=>{
+      const wrapper = mount(<App/>)
+      expect(wrapper.text()).not.toContain('Close Votation')
+      wrapper.setState({admin: true})
+      expect(wrapper.text()).toContain('Close Votation')
+  })
+})
