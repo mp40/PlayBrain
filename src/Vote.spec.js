@@ -44,6 +44,12 @@ describe("Vote works",()=>{
             wrapper.find('#selectJapan').simulate('click')
             expect(wrapper.text()).toContain('3 votes remaining')
         })
+        it('should reduce remaining votes by one when avatar clicked',()=>{
+            const wrapper = shallow(<Vote/>)
+            wrapper.find('#selectJapan').simulate('click')
+            wrapper.find('#img1').simulate('click')
+            expect(wrapper.text()).toContain('2 votes remaining')
+        })
     })
     describe('Available Players',()=>{
         it('should render the players names',()=>{

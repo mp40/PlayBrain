@@ -28,6 +28,10 @@ class Vote extends Component {
         })
     }
 
+    selectPlayer = player =>{
+        this.setState({votesRmaining: this.state.votesRmaining -1})
+    }
+
     render () {
         const availablePlayers = this.state.availablePlayers
         return (
@@ -71,7 +75,9 @@ class Vote extends Component {
                     return <div className="playerCard" key={index}>
                     <div className='imageContainer'>
                     <img
+                    id = {"img" + index}
                     src={player.avatarUrl}
+                    onClick={this.selectPlayer.bind(this, index)}
                     />
                     </div>
                     <h4>
