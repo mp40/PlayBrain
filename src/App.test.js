@@ -9,16 +9,9 @@ describe('rendering components',()=>{
     ReactDOM.render(<App />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
-  it('should not render the Modal component on start',()=>{
+  it('should render the Vote component on start',()=>{
     const wrapper = mount(<App/>)
-    expect(wrapper.text()).not.toContain('Modal displayed')
+    expect(wrapper.text()).toContain('Vote for players')
   })
 })
 
-describe('the modal button',()=>{
-  it('should open the modal when button is clicked',()=>{
-    const wrapper = mount(<App/>)
-    wrapper.find('#openModal').simulate('click')
-    expect(wrapper.text()).toContain('Modal displayed')
-  })
-})
