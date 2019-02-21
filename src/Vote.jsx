@@ -68,7 +68,12 @@ class Vote extends Component {
                 </p>
                 <div>
                 {availablePlayers.map((player, index)=>{
-                    return <div className="playerCard" key={index}>{player.nickname}</div>
+                    return <div className="playerCard" key={index}>
+                    {player.nickname}
+                        <p>
+                            {player.message}
+                        </p>
+                    </div>
                 })}
                 </div>
             </div>
