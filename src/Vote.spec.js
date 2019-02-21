@@ -33,5 +33,10 @@ describe("Vote works",()=>{
             wrapper.find('#selectJapan').simulate('click')
             expect(wrapper.text()).toContain('Click up to 3 Players')
         })
+        it('should display message on valid region',()=>{
+            const wrapper = shallow(<Vote/>)
+            wrapper.find('#selectJapan').simulate('click')
+            expect(wrapper.text()).toContain('The remainder of your votes must be for Japan')
+        })
     })
 })

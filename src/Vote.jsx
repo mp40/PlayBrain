@@ -11,8 +11,8 @@ class Vote extends Component {
     }
 
     dekkiOrange = '255,125,8'
-    msgPlayerVote = 'Click up to 3 Players to place your votes. (3 votes remaining)'
-    msgValidRegion = 'The reaminder of your votes must be for'
+    msgPlayerVote = 'Click up to 3 Players to place your votes. (3 votes remaining) \n'
+    msgValidRegion = 'The remainder of your votes must be for'
 
     selectRegion(region){
         this.setState({selectedRegion: region})
@@ -44,7 +44,7 @@ class Vote extends Component {
                 </button>
                 <p>
                     {this.state.selectedRegion ? 
-                    this.msgPlayerVote :
+                    `${this.msgPlayerVote} \n ${this.msgValidRegion} ${this.state.selectedRegion}` :
                     null}
                 </p>    
             </div>
