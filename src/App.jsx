@@ -1,4 +1,5 @@
 import React from "react";
+import Vote from './Vote'
 import "./App.css";
  
 class App extends React.Component{
@@ -12,6 +13,7 @@ class App extends React.Component{
     render(){
         return (
             <div>
+                <Vote/>
             </div>
         )
     }
