@@ -7,7 +7,8 @@ class Vote extends Component {
         super()
         this.state = {
             selectedRegion: null,
-            votesRmaining: 3
+            votesRmaining: 3,
+            players: null
         }
     }
 

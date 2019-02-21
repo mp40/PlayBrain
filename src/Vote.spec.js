@@ -45,4 +45,11 @@ describe("Vote works",()=>{
             expect(wrapper.text()).toContain('3 votes remaining')
         })
     })
+    describe('Available Players',()=>{
+        it('should render the payers names',()=>{
+            const wrapper = shallow(<Vote/>)
+            wrapper.find('#selectJapan').simulate('click')
+            expect(wrapper.text()).toContain('Narvi')
+        })
+    })
 })
