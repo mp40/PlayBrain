@@ -58,10 +58,17 @@ button:focus {outline:0;}
 img {
     border-radius: 50%;
     width: 45%;
+}
+
+.unselectedImg {
     border: 5px solid darkgray;
 }
 
-img:hover {
+.unselectedImg:hover {
     border: 5px solid whitesmoke
+}
+
+.selectedImg {
+    border: 5px solid rgb(255,125,8)
 }
 

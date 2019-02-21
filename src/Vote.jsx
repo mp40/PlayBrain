@@ -48,6 +48,7 @@ class Vote extends Component {
 
     render () {
         const availablePlayers = this.state.availablePlayers
+        const votedPlayers = this.state.votedPlayers
         return (
             <div className='voteContainer'>
                 <h2>
@@ -91,6 +92,7 @@ class Vote extends Component {
                     <img
                     id = {"img" + index}
                     src={player.avatarUrl}
+                    className={votedPlayers.includes(player) ? 'selectedImg' : 'unselectedImg'}
                     onClick={this.selectPlayer.bind(this, player)}
                     />
                     </div>
