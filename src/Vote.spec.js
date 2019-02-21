@@ -50,6 +50,15 @@ describe("Vote works",()=>{
             wrapper.find('#img1').simulate('click')
             expect(wrapper.text()).toContain('2 votes remaining')
         })
+        it('should not reduce votes below 0',()=>{
+            const wrapper = shallow(<Vote/>)
+            wrapper.find('#selectTaiwan').simulate('click')
+            wrapper.find('#img1').simulate('click')
+            wrapper.find('#img1').simulate('click')
+            wrapper.find('#img1').simulate('click')
+            wrapper.find('#img1').simulate('click')
+            expect(wrapper.text()).toContain('0 votes remaining')
+        })
     })
     describe('Available Players',()=>{
         it('should render the players names',()=>{
