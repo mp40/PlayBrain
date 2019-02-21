@@ -1,0 +1,24 @@
+.voteContainer{
+    text-align: center;
+    color: #ededed;
+    font-family: sans-serif
+}
+
+.details{
+    font-size: small;
+}
+
+p{
+    margin: 0rem;
+}
+
+.regionButton{
+    margin-top: .4rem;
+    margin-left: .2rem;
+    margin-right: .2rem;
+    margin-bottom: 1rem;
+    border-radius: 2px;
+    width: 7rem;
+    height: 1.4rem;
+    font-size: 72%
+}

@@ -21,34 +21,34 @@ class Vote extends Component {
 
     render () {
         return (
-            <div>
-                <div>
+            <div className='voteContainer'>
+                <h2>
                     Vote for players to represent your region's team
-                </div>
-                <p>
+                </h2>
+                <p className='details'>
                     Select your region to browse players
                 </p>
-                <p>
+                <p className='details'>
                     NOTE: You may only vote for one region
                 </p>
-                <button id='selectJapan' onClick={this.selectRegion.bind(this,'Japan')} style={{backgroundColor: this.state.selectedRegion === "Japan" ? `rgb(${this.dekkiOrange})` : 'lightgrey'}}>
+                <button className='regionButton' id='selectJapan' onClick={this.selectRegion.bind(this,'Japan')} style={{backgroundColor: this.state.selectedRegion === "Japan" ? `rgb(${this.dekkiOrange})` : 'lightgrey'}}>
                     Japan
                 </button>
-                <button id='selectTaiwan' onClick={this.selectRegion.bind(this,'Taiwan')} style={{backgroundColor: this.state.selectedRegion === "Taiwan" ? `rgb(${this.dekkiOrange})` : 'lightgrey'}}>
+                <button className='regionButton' id='selectTaiwan' onClick={this.selectRegion.bind(this,'Taiwan')} style={{backgroundColor: this.state.selectedRegion === "Taiwan" ? `rgb(${this.dekkiOrange})` : 'lightgrey'}}>
                     Taiwan
                 </button>
-                <button id='selectHongKong' onClick={this.selectRegion.bind(this,'Hong Kong')} style={{backgroundColor: this.state.selectedRegion === "Hong Kong" ? `rgb(${this.dekkiOrange})` : 'lightgrey'}}>
+                <button className='regionButton' id='selectHongKong' onClick={this.selectRegion.bind(this,'Hong Kong')} style={{backgroundColor: this.state.selectedRegion === "Hong Kong" ? `rgb(${this.dekkiOrange})` : 'lightgrey'}}>
                     Hong Kong
                 </button>
-                <button id='selectSouthEastAsia' onClick={this.selectRegion.bind(this,'South East Asia')} style={{backgroundColor: this.state.selectedRegion === "South East Asia" ? `rgb(${this.dekkiOrange})` : 'lightgrey'}}>
+                <button className='regionButton' id='selectSouthEastAsia' onClick={this.selectRegion.bind(this,'South East Asia')} style={{backgroundColor: this.state.selectedRegion === "South East Asia" ? `rgb(${this.dekkiOrange})` : 'lightgrey'}}>
                     South East Asia
                 </button>
-                <p>
+                <p className="details">
                     {this.state.selectedRegion ? 
                     `${this.msgPlayerVote} ${this.state.votesRmaining} votes remaining` :
                     null}
                 </p>
-                <p>
+                <p className="details">
                     {this.state.selectedRegion ? 
                     `${this.msgValidRegion} ${this.state.selectedRegion}` :
                     null}
