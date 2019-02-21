@@ -13,7 +13,8 @@ class Vote extends Component {
             votesRmaining: 3,
             players: playersMock,
             availablePlayers: [],
-            votedPlayers: []
+            votedPlayers: [],
+            admin: false
         }
     }
 
@@ -108,13 +109,15 @@ class Vote extends Component {
                     <h4>
                         {player.nickname}
                     </h4>
-                    
                         <div className="playerMsg">
                             {player.message}
                         </div>
                     </div>
                 })}
                 </div>
+                <button className='adminCloseVote'>
+                    Close Votation
+                </button>
             </div>
         )
     }
