@@ -15,4 +15,4 @@ function lookUpRegion(region){
     return regions[region]
 }
 
-module.exports = filterByRegion
+module.exports = {filterByRegion}

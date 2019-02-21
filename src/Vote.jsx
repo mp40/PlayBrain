@@ -2,7 +2,7 @@
 import React, {Component} from "react";
 import './Vote.css'
 
-const filterByRegion = require('./helperFunctions')
+const {filterByRegion} = require('./helperFunctions')
 const playersMock = require('./playersMock')
 
 class Vote extends Component {
@@ -44,7 +44,6 @@ class Vote extends Component {
                 votedPlayers: votedPlayers
             })
         }
-        
     }
 
     render () {

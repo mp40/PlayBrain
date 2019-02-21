@@ -2,3 +2,33 @@ body{
   background-color: rgb(35, 41, 47);
   color: #fff
 }
+
+h4{
+  margin-top: .6rem;
+  margin-bottom: .6rem;
+}
+
+.details{
+  font-size: small;
+}
+
+.fadedText{
+  color: darkgray;
+}
+
+p{
+  margin: 0rem;
+}
+
+button{
+  margin-top: .4rem;
+  margin-left: .2rem;
+  margin-right: .2rem;
+  margin-bottom: 1rem;
+  border-radius: 2px;
+  width: 7rem;
+  height: 1.4rem;
+  font-size: 72%  
+}
+
+button:focus {outline:0;}

@@ -1,7 +1,3 @@
-h4{
-    margin-top: .6rem;
-    margin-bottom: .6rem;
-}
 
 .voteContainer{
     text-align: center;
@@ -9,33 +5,8 @@ h4{
     font-family: sans-serif
 }
 
-.details{
-    font-size: small;
-}
-
-.fadedText{
-    color: darkgray;
-}
-
-p{
-    margin: 0rem;
-}
-
-button{
-    margin-top: .4rem;
-    margin-left: .2rem;
-    margin-right: .2rem;
-    margin-bottom: 1rem;
-    border-radius: 2px;
-    width: 7rem;
-    height: 1.4rem;
-    font-size: 72%  
-}
-
-button:focus {outline:0;}
-
 .adminCloseVote{
-    background-color: lightgray
+    background-color: lightgrey
 }
 
 .playerContainer {
