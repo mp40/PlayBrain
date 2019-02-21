@@ -95,12 +95,12 @@ class Vote extends Component {
                         className={votedPlayers.includes(player) ? 'selectedImg' : 'unselectedImg'}
                         onClick={this.selectPlayer.bind(this, player)}
                         />
-                            <div className = 'yourSlection'>
-                                {votedPlayers.includes(player) ?
-                                'Your selection' :
-                                null
-                                }
-                            </div>
+                        <div className = 'yourSelection'>
+                            {votedPlayers.includes(player) ?
+                            'Your selection' :
+                            null
+                            }
+                        </div>
                     </div>
                     <h4>
                         {player.nickname}

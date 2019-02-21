@@ -46,18 +46,22 @@ button:focus {outline:0;}
 
 .imageContainer {
     margin-top: 1.5rem;
-}
-
-.playerMsg {
-    margin-left: 1.5rem;
-    margin-right: 1.5rem; 
-    text-align: justify;
-    font-size: small;
+    position: relative;
 }
 
 img {
     border-radius: 50%;
     width: 45%;
+}
+
+.yourSelection {
+    background-color: rgb(255,125,8);
+    color: whitesmoke;
+    border-radius: 2px;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .unselectedImg {
@@ -71,4 +75,12 @@ img {
 .selectedImg {
     border: 5px solid rgb(255,125,8)
 }
+
+.playerMsg {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem; 
+    text-align: justify;
+    font-size: small;
+}
+
 
