@@ -29,7 +29,10 @@ class Vote extends Component {
     }
 
     selectPlayer = player =>{
-        this.setState({votesRmaining: this.state.votesRmaining -1})
+        if(this.state.votesRmaining > 0){
+            this.setState({votesRmaining: this.state.votesRmaining -1})
+        }
+        
     }
 
     render () {
