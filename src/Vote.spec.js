@@ -77,7 +77,7 @@ describe("Vote works",()=>{
             wrapper.find('#selectJapan').simulate('click')
             wrapper.find('#img1').simulate('click')
             wrapper.find('#selectTaiwan').simulate('click')
-            expect(wrapper.text()).toContain('0 votes remaining')
+            expect(wrapper.text()).toContain('3 votes remaining')
         })
     })
     describe('Available Players',()=>{

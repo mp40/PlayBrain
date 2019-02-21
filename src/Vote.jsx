@@ -25,6 +25,7 @@ class Vote extends Component {
         const players = this.state.players
         this.setState({
             selectedRegion: region,
+            votesRmaining: 3,
             availablePlayers: filterByRegion(players, region),
             votedPlayers: []
         })
