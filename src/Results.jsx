@@ -28,7 +28,6 @@ class Results extends Component {
 
     render () {
         const availablePlayers = this.state.availablePlayers
-        const votedPlayers = this.props.votedPlayers
         return (
             <div className="resultsContainer">
                 <h2>
@@ -49,6 +48,30 @@ class Results extends Component {
                 <button className='regionButton' id='viewSouthEastAsia' onClick={this.viewRegion.bind(this,'South East Asia')} style={{backgroundColor: this.state.viewRegion === "South East Asia" ? `rgb(${this.dekkiOrange})` : 'lightgrey'}}>
                     South East Asia
                 </button>
+                <div className="playerContainer">
+                {availablePlayers.map((player, index)=>{
+                    return <div className="playerCard" key={index}>
+                    <div className='imageContainer'>
+                        <img
+                        id = {"img" + index}
+                        src={player.avatarUrl}
+                        />
+                        <div className = 'yourSelection'>
+                            {/* {votedPlayers.includes(player) ?
+                            'Your selection' :
+                            null
+                            } */}
+                        </div>
+                    </div>
+                    <h4>
+                        {player.nickname}
+                    </h4>
+                        <div className="playerMsg">
+                            {player.message}
+                        </div>
+                    </div>
+                })}
+                </div>
         </div>
         )
     }
