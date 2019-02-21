@@ -46,10 +46,15 @@ describe("Vote works",()=>{
         })
     })
     describe('Available Players',()=>{
-        it('should render the payers names',()=>{
+        it('should render the players names',()=>{
             const wrapper = shallow(<Vote/>)
             wrapper.find('#selectJapan').simulate('click')
             expect(wrapper.text()).toContain('Narvi')
+        })
+        it('should render the players message',()=>{
+            const wrapper = shallow(<Vote/>)
+            wrapper.find('#selectJapan').simulate('click')
+            expect(wrapper.text()).toContain('the anchor/captain of the Singapore team')
         })
     })
 })
