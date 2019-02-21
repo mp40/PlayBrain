@@ -72,6 +72,13 @@ describe("Vote works",()=>{
             wrapper.find('#img1').simulate('click')
             expect(wrapper.text()).toContain('Your selection')
         })
+        it('should reset votes to three if different country selected',()=>{
+            const wrapper = shallow(<Vote/>)
+            wrapper.find('#selectJapan').simulate('click')
+            wrapper.find('#img1').simulate('click')
+            wrapper.find('#selectTaiwan').simulate('click')
+            expect(wrapper.text()).toContain('0 votes remaining')
+        })
     })
     describe('Available Players',()=>{
         it('should render the players names',()=>{
