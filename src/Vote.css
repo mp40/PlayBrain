@@ -12,6 +12,8 @@ p{
     margin: 0rem;
 }
 
+button:focus {outline:0;}
+
 .regionButton{
     margin-top: .4rem;
     margin-left: .2rem;
