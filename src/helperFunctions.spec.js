@@ -1,4 +1,4 @@
-const {filterByRegion} = require('./helperFunctions')
+const {filterByRegion, totalLikes} = require('./helperFunctions')
 const playersMock = require('./playersMock')
 
 describe('filtering players by team',()=>{
@@ -10,11 +10,8 @@ describe('filtering players by team',()=>{
     })
 })
 
-// describe('timer to simulate waiting for other users',()=>{
-//     it("should wait 5 seconds", () => {
-//         const promise = waitForOtherUsers();
-//         return promise.then(data => {
-//             expect(data).toEqual('done')
-//         })
-//     })
-// })
+describe('calculating percentages of votes',()=>{
+    it('should sum all the likes passed in',()=>{
+        expect(totalLikes(playersMock)).toBe(1699)
+    })
+})

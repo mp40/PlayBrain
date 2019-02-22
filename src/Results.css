@@ -3,3 +3,26 @@
     color: #ededed;
     font-family: sans-serif
 }
+
+.likePercent{
+    background-color: darkgray;
+    color: black;
+    font-size: small;
+    padding: .2rem;
+    border-radius: 2px;
+    position: absolute;
+    bottom: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.selectedPercent{
+    background-color: rgb(255,125,8);
+    /* font-size: small; */
+    padding: .2rem;
+    border-radius: 2px;
+    position: absolute;
+    bottom: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}

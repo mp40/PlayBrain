@@ -128,17 +128,35 @@ describe('The Resuts component',()=>{
       })
   })
   describe('View Players',()=>{
-    const wrapper = mount(<App/>)
-    wrapper.setState({admin: true})
-    wrapper.find('#adminCloseVote').simulate('click')
       it('should render the players names',()=>{
+          const wrapper = mount(<App/>)
+          wrapper.setState({admin: true})
+          wrapper.find('#adminCloseVote').simulate('click')
           wrapper.find('#viewJapan').simulate('click')
           expect(wrapper.text()).toContain('Narvi')
       })
       it('should render the players message',()=>{
+          const wrapper = mount(<App/>)
+          wrapper.setState({admin: true})
+          wrapper.find('#adminCloseVote').simulate('click')
           wrapper.find('#viewJapan').simulate('click')
           expect(wrapper.text()).toContain('the anchor/captain of the Singapore team')
       })
+      it('should display the relivant "Your selection" tag',()=>{
+        const wrapper = mount(<App/>)
+        wrapper.setState({admin: true})
+        wrapper.find('#selectTaiwan').simulate('click')
+        wrapper.find('#img1').simulate('click')
+        wrapper.find('#adminCloseVote').simulate('click')
+        expect(wrapper.text()).toContain('Your selection')
+    })
+    it('should display percentage of votes recieved for each player',()=>{
+          const wrapper = mount(<App/>)
+          wrapper.setState({admin: true})
+          wrapper.find('#adminCloseVote').simulate('click')
+          wrapper.find('#viewJapan').simulate('click')
+          expect(wrapper.text()).toContain('15.69')
+    })
   })
 })
 

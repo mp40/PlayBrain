@@ -1,3 +1,9 @@
+function totalLikes(players){
+    return players.reduce((sum, player)=>{
+        return sum + player.likes
+    },0)
+}
+
 function filterByRegion(players, region) {
     const place = lookUpRegion(region)
     return players.filter((player)=>{
@@ -17,4 +23,4 @@ function lookUpRegion(region){
 
 const dekkiOrange = '255,125,8'
 
-module.exports = {filterByRegion, dekkiOrange, lookUpRegion}
+module.exports = {filterByRegion, dekkiOrange, totalLikes}

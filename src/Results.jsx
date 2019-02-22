@@ -10,6 +10,7 @@ class Results extends Component {
     render () {
         const availablePlayers = this.props.availablePlayers
         const votedPlayers = this.props.votedPlayers
+        const totalVotes = this.props.totalVotes
         return (
             <div className="resultsContainer">
                 <h2>
@@ -34,6 +35,12 @@ class Results extends Component {
                 {availablePlayers.map((player, index)=>{
                     return <div className="playerCard" key={index}>
                     <div className='imageContainer'>
+                        <div className = {votedPlayers.includes(player) ?
+                            "selectedPercent" :
+                            "likePercent"} 
+                            >
+                            {Math.round(((player.likes*100)/totalVotes)*100)/100 + '%'}
+                        </div>
                         <img
                         id = {"img" + index}
                         src={player.avatarUrl}

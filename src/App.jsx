@@ -3,7 +3,7 @@ import Vote from './Vote';
 import Results from './Results';
 import "./App.css";
 
-const {filterByRegion} = require('./helperFunctions')
+const {filterByRegion, totalLikes} = require('./helperFunctions')
 const playersMock = require('./playersMock')
  
 class App extends Component{
@@ -17,7 +17,8 @@ class App extends Component{
             votesRmaining: 3,
             votedPlayers:[],
             players: playersMock,
-            availablePlayers: []
+            availablePlayers: [],
+            totalVotes: undefined
         };
     }
 
@@ -37,9 +38,11 @@ class App extends Component{
 
     changeRegion(region){
         const players = this.state.players
+        const playerList = filterByRegion(players, region)
         this.setState({
             selectedRegion: region,
-            availablePlayers: filterByRegion(players, region)
+            availablePlayers: playerList,
+            totalVotes: totalLikes(playerList)
         })
     }
 
@@ -79,6 +82,7 @@ class App extends Component{
                     viewRegion={this.state.selectedRegion}
                     availablePlayers={this.state.availablePlayers}
                     votedPlayers={this.state.votedPlayers}
+                    totalVotes={this.state.totalVotes}
                 /> :
                 null}
             </div>
