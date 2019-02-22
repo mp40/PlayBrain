@@ -26,6 +26,20 @@ class App extends Component{
         this.setState({admin: !this.state.admin})
     }
 
+    reset(){
+        this.setState({
+            admin: false,
+            user: true,
+            toggleView: 'Vote',
+            selectedRegion: null,
+            votesRmaining: 3,
+            votedPlayers:[],
+            players: playersMock,
+            availablePlayers: [],
+            totalVotes: undefined
+        })
+    }
+
     toggleView(page) {
         this.setState({toggleView: page})
     }
@@ -68,8 +82,11 @@ class App extends Component{
     render(){
         return (
             <div>
-                <button className="simulateAdmin" onClick={this.toggleAdmin.bind(this)}>
+                <button className="simulate" onClick={this.toggleAdmin.bind(this)}>
                     simulate {this.state.admin === false ? 'admim' : 'user'}
+                </button>
+                <button className="simulate" onClick={this.reset.bind(this)}>
+                    reset
                 </button>
                 {this.state.toggleView === "Vote" ?
                 <Vote 

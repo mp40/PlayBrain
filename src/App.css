@@ -33,7 +33,7 @@ button{
 
 button:focus {outline:0;}
 
-.simulateAdmin {
+.simulate{
   position: relative;
   display: inline-block;
   padding: 0.25em 0.5em;
@@ -46,7 +46,7 @@ button:focus {outline:0;}
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
 }
 
-.simulateAdmin:active {
+.simulate:active {
   /*onClick*/
   border: solid 1px rgb(255,125,8);;
   box-shadow: none;
