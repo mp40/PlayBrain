@@ -160,6 +160,7 @@ describe('The Resuts component',()=>{
   })
 })
 
+
 describe('admin',()=>{
   describe('the results page', ()=>{
     it('should render the results page when admin closes votation',()=>{
