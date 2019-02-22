@@ -1,20 +1,59 @@
-import React from "react";
+import React, {Component} from "react";
 import Vote from './Vote';
 import Results from './Results';
 import "./App.css";
+
+const {filterByRegion} = require('./helperFunctions')
+const playersMock = require('./playersMock')
  
-class App extends React.Component{
+class App extends Component{
     constructor(props){
         super(props)
         this.state = {
             admin: false,
             user: true,
-            toggleView: 'Vote'
+            toggleView: 'Vote',
+            selectedRegion: null,
+            votesRmaining: 3,
+            votedPlayers:[],
+            players: playersMock,
+            availablePlayers: []
         };
     }
 
     toggleView(page) {
         this.setState({toggleView: page})
+    }
+// selectRegion =region =>{
+    //     const players = this.state.players
+    //     this.props.resetRegion(region)
+    //     this.setState({
+    //         availablePlayers: filterByRegion(players, region),
+    //     })
+    // }
+    resetRegion(region){
+        const players = this.state.players
+        this.setState({
+            votedPlayers: [],
+            votesRmaining: 3,
+            selectedRegion: region,
+            availablePlayers: filterByRegion(players, region)
+        })
+    }
+
+    selectPlayer(player){
+        const votedPlayers = this.state.votedPlayers
+        if(votedPlayers.includes(player)){
+            return
+        } else {
+            votedPlayers.push(player)
+        }
+        if(this.state.votesRmaining > 0){
+            this.setState({
+                votesRmaining: this.state.votesRmaining -1,
+                votedPlayers: votedPlayers
+            })
+        }
     }
 
     render(){
@@ -23,7 +62,13 @@ class App extends React.Component{
                 {this.state.toggleView === "Vote" ?
                 <Vote 
                     admin={this.state.admin}
-                    toggleView={this.toggleView.bind(this)}  
+                    toggleView={this.toggleView.bind(this)}
+                    selectPlayer={this.selectPlayer.bind(this)}  
+                    votedPlayers={this.state.votedPlayers}
+                    votesRmaining={this.state.votesRmaining}
+                    resetRegion={this.resetRegion.bind(this)}
+                    selectedRegion={this.state.selectedRegion}
+                    availablePlayers={this.state.availablePlayers}
                 /> :
                 null}
                 {this.state.toggleView === "Results" ?

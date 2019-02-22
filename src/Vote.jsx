@@ -2,53 +2,20 @@
 import React, {Component} from "react";
 import './Vote.css'
 
-const {filterByRegion} = require('./helperFunctions')
+const {filterByRegion, dekkiOrange} = require('./helperFunctions')
 const playersMock = require('./playersMock')
 
 class Vote extends Component {
-    constructor(){
-        super()
-        this.state = {
-            selectedRegion: null,
-            votesRmaining: 3,
-            players: playersMock,
-            availablePlayers: [],
-            votedPlayers: [],
-        }
+    constructor(props){
+        super(props)
     }
 
-    dekkiOrange = '255,125,8'
     msgPlayerVote = 'Click up to 3 Players to place your votes.'
     msgValidRegion = 'The remainder of your votes must be for'
 
-    selectRegion =region =>{
-        const players = this.state.players
-        this.setState({
-            selectedRegion: region,
-            votesRmaining: 3,
-            availablePlayers: filterByRegion(players, region),
-            votedPlayers: []
-        })
-    }
-
-    selectPlayer = player =>{
-        const votedPlayers = this.state.votedPlayers
-        if(votedPlayers.includes(player)){
-            return
-        } else {
-            votedPlayers.push(player)
-        }
-        if(this.state.votesRmaining > 0){
-            this.setState({
-                votesRmaining: this.state.votesRmaining -1,
-                votedPlayers: votedPlayers
-            })
-        }
-    }
-
     render () {
-        const availablePlayers = this.state.availablePlayers
-        const votedPlayers = this.state.votedPlayers
+        const availablePlayers = this.props.availablePlayers
+        const votedPlayers = this.props.votedPlayers
         return (
             <div className='voteContainer'>
                 <h2>
@@ -60,29 +27,29 @@ class Vote extends Component {
                 <p className='details'>
                     NOTE: You may only vote for one region
                 </p>
-                <button className='regionButton' id='selectJapan' onClick={this.selectRegion.bind(this,'Japan')} style={{backgroundColor: this.state.selectedRegion === "Japan" ? `rgb(${this.dekkiOrange})` : 'lightgrey'}}>
+                <button className='regionButton' id='selectJapan' onClick={this.props.resetRegion.bind(this,'Japan')} style={{backgroundColor: this.props.selectedRegion === "Japan" ? `rgb(${dekkiOrange})` : 'lightgrey'}}>
                     Japan
                 </button>
-                <button className='regionButton' id='selectTaiwan' onClick={this.selectRegion.bind(this,'Taiwan')} style={{backgroundColor: this.state.selectedRegion === "Taiwan" ? `rgb(${this.dekkiOrange})` : 'lightgrey'}}>
+                <button className='regionButton' id='selectTaiwan' onClick={this.props.resetRegion.bind(this,'Taiwan')} style={{backgroundColor: this.props.selectedRegion === "Taiwan" ? `rgb(${dekkiOrange})` : 'lightgrey'}}>
                     Taiwan
                 </button>
-                <button className='regionButton' id='selectHongKong' onClick={this.selectRegion.bind(this,'Hong Kong')} style={{backgroundColor: this.state.selectedRegion === "Hong Kong" ? `rgb(${this.dekkiOrange})` : 'lightgrey'}}>
+                <button className='regionButton' id='selectHongKong' onClick={this.props.resetRegion.bind(this,'Hong Kong')} style={{backgroundColor: this.props.selectedRegion === "Hong Kong" ? `rgb(${dekkiOrange})` : 'lightgrey'}}>
                     Hong Kong
                 </button>
-                <button className='regionButton' id='selectSouthEastAsia' onClick={this.selectRegion.bind(this,'South East Asia')} style={{backgroundColor: this.state.selectedRegion === "South East Asia" ? `rgb(${this.dekkiOrange})` : 'lightgrey'}}>
+                <button className='regionButton' id='selectSouthEastAsia' onClick={this.props.resetRegion.bind(this,'South East Asia')} style={{backgroundColor: this.props.selectedRegion === "South East Asia" ? `rgb(${dekkiOrange})` : 'lightgrey'}}>
                     South East Asia
                 </button>
                 <p className="details">
-                    {this.state.selectedRegion ? 
+                    {this.props.selectedRegion ? 
                     `${this.msgPlayerVote} `:
                     null}
                     <span className='fadedText'>
-                        {this.state.selectedRegion ? `${this.state.votesRmaining} votes remaining`: null}
+                        {this.props.selectedRegion ? `${this.props.votesRmaining} votes remaining`: null}
                     </span>
                 </p>
                 <p className="details">
-                    {this.state.selectedRegion ? 
-                    `${this.msgValidRegion} ${this.state.selectedRegion}` :
+                    {this.props.selectedRegion ? 
+                    `${this.msgValidRegion} ${this.props.selectedRegion}` :
                     null}
                 </p>
                 <div className="playerContainer">
@@ -94,8 +61,8 @@ class Vote extends Component {
                         src={player.avatarUrl}
                         className={votedPlayers.includes(player) ? 
                             'selectedImg' : 
-                            this.state.votesRmaining > 0 ? 'unselectedImg' : 'finalSelection'}
-                        onClick={this.selectPlayer.bind(this, player)}
+                            this.props.votesRmaining > 0 ? 'unselectedImg' : 'finalSelection'}
+                        onClick={this.props.selectPlayer.bind(this, player)}
                         />
                         <div className = 'yourSelection'>
                             {votedPlayers.includes(player) ?

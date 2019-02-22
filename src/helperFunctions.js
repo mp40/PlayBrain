@@ -15,4 +15,6 @@ function lookUpRegion(region){
     return regions[region]
 }
 
-module.exports = {filterByRegion}
+const dekkiOrange = '255,125,8'
+
+module.exports = {filterByRegion, dekkiOrange, lookUpRegion}

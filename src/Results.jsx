@@ -2,15 +2,14 @@
 import React, {Component} from "react";
 import './Results.css'
 
-const playersMock = require('./playersMock')
 const {filterByRegion} = require('./helperFunctions')
+const playersMock = require('./playersMock')
 
 class Results extends Component {
     constructor(){
         super()
         this.state = {
             viewRegion: undefined,
-            players: playersMock,
             availablePlayers: []
         }
     }
