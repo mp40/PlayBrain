@@ -10,7 +10,6 @@ class Results extends Component {
     render () {
         const availablePlayers = this.props.availablePlayers
         const votedPlayers = this.props.votedPlayers
-        const totalVotes = this.props.totalVotes
         return (
             <div className="resultsContainer">
                 <h2>

@@ -78,7 +78,7 @@ class Vote extends Component {
                 })}
                 </div>
                 {this.props.admin ? 
-                <button id='adminCloseVote' onClick={this.props.toggleView.bind(this, "Results")}>
+                <button className="simulate" id='adminCloseVote' onClick={this.props.toggleView.bind(this, "Results")}>
                     Close Votation
                 </button> :
                 null
