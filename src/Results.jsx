@@ -1,6 +1,7 @@
 // eslint-disable-next-line
 import React, {Component} from "react";
 import './Results.css'
+import './Vote.css'
 
 const {dekkiOrange} = require('./helperFunctions')
 
@@ -37,6 +38,10 @@ class Results extends Component {
                         id = {"img" + index}
                         src={player.avatarUrl}
                         alt=""
+                        className={votedPlayers.includes(player) ?
+                            'selectedImg' :
+                            'unselectedImg'
+                        }
                         />
                         <div className = 'yourSelection'>
                             {votedPlayers.includes(player) ?
