@@ -47,7 +47,7 @@ class Results extends Component {
                         alt=""
                         className={votedPlayers.includes(player) ?
                             'selectedImg' :
-                            'unselectedImg'
+                            'unSelectedImg'
                         }
                         />
                         <div className = 'yourSelection'>
