@@ -3,7 +3,7 @@ import Vote from './Vote';
 import Results from './Results';
 import "./App.css";
 
-const {filterByRegion, totalLikes} = require('./helperFunctions')
+const {filterByRegion, totalLikes, mapPercentage} = require('./helperFunctions')
 const playersMock = require('./playersMock')
  
 class App extends Component{
@@ -41,7 +41,11 @@ class App extends Component{
     }
 
     toggleView(page) {
-        this.setState({toggleView: page})
+        this.setState({
+            toggleView: page,
+            selectedRegion: null,
+            availablePlayers: []
+        })
     }
 
     resetRegion(region){
@@ -57,10 +61,11 @@ class App extends Component{
     changeRegion(region){
         const players = this.state.players
         const playerList = filterByRegion(players, region)
+        const total = totalLikes(playerList)
         this.setState({
             selectedRegion: region,
-            availablePlayers: playerList,
-            totalVotes: totalLikes(playerList)
+            availablePlayers: mapPercentage(total, playerList),
+            totalVotes: total
         })
     }
 

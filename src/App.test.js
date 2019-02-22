@@ -148,6 +148,7 @@ describe('The Resuts component',()=>{
         wrapper.find('#selectTaiwan').simulate('click')
         wrapper.find('#img1').simulate('click')
         wrapper.find('#adminCloseVote').simulate('click')
+        wrapper.find('#viewTaiwan').simulate('click')
         expect(wrapper.text()).toContain('Your selection')
     })
     it('should display percentage of votes recieved for each player',()=>{

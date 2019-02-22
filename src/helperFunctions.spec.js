@@ -1,4 +1,4 @@
-const {filterByRegion, totalLikes} = require('./helperFunctions')
+const {filterByRegion, totalLikes, mapPercentage} = require('./helperFunctions')
 const playersMock = require('./playersMock')
 
 describe('filtering players by team',()=>{
@@ -13,5 +13,13 @@ describe('filtering players by team',()=>{
 describe('calculating percentages of votes',()=>{
     it('should sum all the likes passed in',()=>{
         expect(totalLikes(playersMock)).toBe(1699)
+    })
+    it('should map a percentage to each player',()=>{
+        const playerList = [
+            {'likes': 100},
+            {'likes': 50},
+            {'likes': 50}
+        ]
+        expect(mapPercentage(200, playerList)[0]['percent']).toEqual(50)
     })
 })

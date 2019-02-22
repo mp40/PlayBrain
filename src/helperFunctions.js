@@ -4,6 +4,15 @@ function totalLikes(players){
     },0)
 }
 
+function mapPercentage(totalLikes, playerList){
+    return playerList.map((player)=>{
+        let temp = (player.likes*100)/totalLikes
+        temp = Math.round(temp*100)/100
+        player['percent'] = temp
+        return player
+    })
+}
+
 function filterByRegion(players, region) {
     const place = lookUpRegion(region)
     return players.filter((player)=>{
@@ -23,4 +32,4 @@ function lookUpRegion(region){
 
 const dekkiOrange = '255,125,8'
 
-module.exports = {filterByRegion, dekkiOrange, totalLikes}
+module.exports = {filterByRegion, dekkiOrange, totalLikes, mapPercentage}

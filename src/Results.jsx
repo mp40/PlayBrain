@@ -39,7 +39,7 @@ class Results extends Component {
                             "selectedPercent" :
                             "likePercent"} 
                             >
-                            {Math.round(((player.likes*100)/totalVotes)*100)/100 + '%'}
+                            {player.percent + '%'}
                         </div>
                         <img
                         id = {"img" + index}
