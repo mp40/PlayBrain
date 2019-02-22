@@ -10,7 +10,7 @@ class App extends Component{
     constructor(props){
         super(props)
         this.state = {
-            admin: true,
+            admin: false,
             user: true,
             toggleView: 'Vote',
             selectedRegion: null,
@@ -20,6 +20,10 @@ class App extends Component{
             availablePlayers: [],
             totalVotes: undefined
         };
+    }
+
+    toggleAdmin(){
+        this.setState({admin: !this.state.admin})
     }
 
     toggleView(page) {
@@ -64,6 +68,9 @@ class App extends Component{
     render(){
         return (
             <div>
+                <button className="simulateAdmin" onClick={this.toggleAdmin.bind(this)}>
+                    simulate {this.state.admin === false ? 'admim' : 'user'}
+                </button>
                 {this.state.toggleView === "Vote" ?
                 <Vote 
                     admin={this.state.admin}
