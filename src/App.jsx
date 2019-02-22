@@ -24,18 +24,20 @@ class App extends Component{
     toggleView(page) {
         this.setState({toggleView: page})
     }
-// selectRegion =region =>{
-    //     const players = this.state.players
-    //     this.props.resetRegion(region)
-    //     this.setState({
-    //         availablePlayers: filterByRegion(players, region),
-    //     })
-    // }
+
     resetRegion(region){
         const players = this.state.players
         this.setState({
             votedPlayers: [],
             votesRmaining: 3,
+            selectedRegion: region,
+            availablePlayers: filterByRegion(players, region)
+        })
+    }
+
+    changeRegion(region){
+        const players = this.state.players
+        this.setState({
             selectedRegion: region,
             availablePlayers: filterByRegion(players, region)
         })
@@ -72,7 +74,12 @@ class App extends Component{
                 /> :
                 null}
                 {this.state.toggleView === "Results" ?
-                <Results/> :
+                <Results
+                    changeRegion={this.changeRegion.bind(this)}
+                    viewRegion={this.state.selectedRegion}
+                    availablePlayers={this.state.availablePlayers}
+                    votedPlayers={this.state.votedPlayers}
+                /> :
                 null}
             </div>
         )

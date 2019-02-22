@@ -2,13 +2,9 @@
 import React, {Component} from "react";
 import './Vote.css'
 
-const {filterByRegion, dekkiOrange} = require('./helperFunctions')
-const playersMock = require('./playersMock')
+const {dekkiOrange} = require('./helperFunctions')
 
 class Vote extends Component {
-    constructor(props){
-        super(props)
-    }
 
     msgPlayerVote = 'Click up to 3 Players to place your votes.'
     msgValidRegion = 'The remainder of your votes must be for'
@@ -59,6 +55,7 @@ class Vote extends Component {
                         <img
                         id = {"img" + index}
                         src={player.avatarUrl}
+                        alt=""
                         className={votedPlayers.includes(player) ? 
                             'selectedImg' : 
                             this.props.votesRmaining > 0 ? 'unselectedImg' : 'finalSelection'}
