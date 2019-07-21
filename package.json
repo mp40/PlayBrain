@@ -6,7 +6,7 @@
     "heroku": "^7.18.7",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
-    "react-scripts": "2.1.8"
+    "react-scripts": "3.0.1"
   },
   "devDependencies": {
     "enzyme": "^3.8.0",
